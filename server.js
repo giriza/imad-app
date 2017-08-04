@@ -14,13 +14,11 @@ app.get('/post1', function(req,res) {
 });
 
 app.get('/post2',function(req,res){
-    res.send('Welcome to my second web page');
     res.sendFile(path.join(__dirname, 'ui', 'post2.html'));
 });
 
 app.get('/post3',function(req,res){
-    res.send('Welcome to my third web page');
-    res.sendFile(path.join(__dirname, 'ui', 'post3.html'));
+        res.sendFile(path.join(__dirname, 'ui', 'post3.html'));
 });
 
 
