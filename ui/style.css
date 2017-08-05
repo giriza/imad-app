@@ -1,7 +1,7 @@
 body {
     font-family: Lucida;
     background-color: lightyellow;
-    margin-top: 75px;
+    margin-top: 71px;
 }
 
 .center {
@@ -25,7 +25,6 @@ max-width: 800px;
 margin: 0 auto;                        
 color: #401b82;
 font-family: Franklin Gothic Medium;
-padding-top: 71px;
 padding-left: 20px;
 padding-right: 20px;                       
 }            
