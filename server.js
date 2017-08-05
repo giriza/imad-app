@@ -96,9 +96,9 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:postName', function(req,res) {
-    var postName = req.params.postName;
-    res.send(createTemplate(articles[postName]));
+app.get('/:postNumber', function(req,res) {
+    var postName = req.params.postNumber;
+    res.send(createTemplate(articles[postNumber]));
 });
 
 
