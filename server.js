@@ -5,10 +5,12 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var postOne = {
+var articles = {
+    
+    'postOne': {
     title : 'About Me || GIRIZA',
     heading : 'Post One',
-    date : 'Aug 5th,2016',
+    date : 'Aug 5th,2017',
     content : 
     `    <p>
         After 4yrs of struggle with coding, i just realised this is the easiest thing ever!
@@ -17,7 +19,40 @@ var postOne = {
         Thanks to IMAD! :D
      </p>`
     
+},
+    'postTwo': {
+    title : 'Life as an Engineer || GIRIZA',
+    heading : 'Post Two',
+    date : 'Aug 6th,2017',
+    content : 
+    `   <hr/>
+            <h1>
+                My Life as an Engineer
+            </h1>
+            
+            <p>
+                2013-2017
+            </p>
+     `
+    },
+    'postThree': {
+    title : 'Engineer ke Phases || GIRIZA',
+    heading : 'Post Three',
+    date : 'Aug 7th,2017',
+    content : 
+    `   <hr/>
+            <h1>
+                Phases of being an Engineer
+            </h1>
+            
+            <p>
+                My experience as a computer science engineer.
+            </p>
+     `    
+        
+    }
 };
+
 
 function createTemplate (data) {
     var title = data.title;
@@ -58,19 +93,20 @@ function createTemplate (data) {
 }
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+    res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/post1', function(req,res) {
-        res.send(createTemplate(postOne));
+app.get('/:postName', function(req,res) {
+    var postName = req.params.postName;
+    res.send(createTemplate(articles[postName]));
 });
 
-app.get('/post2',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'post2.html'));
+app.get('/:postName',function(req,res){
+    res.send(createTemplate(articles[postName]));
 });
 
-app.get('/post3',function(req,res){
-        res.sendFile(path.join(__dirname, 'ui', 'post3.html'));
+app.get('/postName',function(req,res){
+    res.send(createTemplate(articles[postName]));
 });
 
 
