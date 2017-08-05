@@ -101,13 +101,6 @@ app.get('/:postName', function(req,res) {
     res.send(createTemplate(articles[postName]));
 });
 
-app.get('/:postName',function(req,res){
-    res.send(createTemplate(articles[postName]));
-});
-
-app.get('/postName',function(req,res){
-    res.send(createTemplate(articles[postName]));
-});
 
 
 app.get('/ui/style.css', function (req, res) {
