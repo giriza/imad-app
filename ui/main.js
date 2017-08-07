@@ -6,7 +6,14 @@ element.innerHTML = 'GIRIZA';
 
 //image movement
 var madi = document.getElementById('madi');
-madi.onclick = function (){
+var marginLeft = 0;
+function moveRight () {
+   marginLeft = marginLeft + 10;
+   img.style.marginLeft= marginLeft + 'px';
     
-    madi.style.marginLeft ='100px';
+    
 }
+madi.onclick = function (){
+    var interval =setInterval(moveRight , 100);
+
+};
