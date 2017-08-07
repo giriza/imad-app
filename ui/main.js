@@ -5,8 +5,8 @@ var element = document.getElementById('main text');
 element.innerHTML = 'GIRIZA';
 
 //image movement
-var img = document.getElementById('img');
-img.onclick = function (){
+var madi = document.getElementById('madi');
+madi.onclick = function (){
     
-    img.style.marginLeft ='100px';
+    madi.style.marginLeft ='100px';
 }
