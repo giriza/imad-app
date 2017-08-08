@@ -24,7 +24,7 @@ var counter = 0;
  request.open('GET','http://girijaiyer1996.imad.hasura-app.io/counter',true);
  request.send(null);
   
-    
+ };  
 
 
 //submit name
