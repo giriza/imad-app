@@ -4,7 +4,8 @@ var counter = 0;
 
  button.onclick = function() {
   
-  //make a request to counter endpoint
+  //create a request to counter endpoint
+  
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
       if(request.readystate == XMLHttpRequest.DONE)
@@ -18,9 +19,10 @@ var counter = 0;
       }
       //not yet done - no action reqd
   };
-  //capture the response and store it in a variable
   
-  //render the variable in correct span
+  //make  a request
+ request.open('GET','http://girijaiyer1996.imad.hasura-app.io/counter',true);
+ request.send(null);
   
     
 };
