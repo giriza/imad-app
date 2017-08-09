@@ -126,9 +126,10 @@ app.get('/favicon.ico', function (req, res) {
 });
 
 var names = [];
-app.get('/submit-name/:name' , function (req,res) {
+app.get('/submit-name' , function (req,res) { //URL: /submit-name?name=xxxxx
 //get the current name
-var name = req.params.name; //to do
+var name = req.query.name; //to do
+
 names.push(name);
 //JSON JavaScript Object Notation
 res.send(JSON.stringify(names));
