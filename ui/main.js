@@ -29,8 +29,7 @@ var counter = 0;
 
 
 //submit name
-var nameInput = document.getElementById('n');
-var n = nameInput.value;
+
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
     
@@ -57,6 +56,8 @@ submit.onclick = function () {
       //not yet done - no action reqd
    };
       //make  a request
+ var nameInput = document.getElementById('n');
+ var n = nameInput.value;
  request.open('GET','http://girijaiyer1996.imad.hasura-app.io/submit-name?name='+ name,true);
  request.send(null);
  };
