@@ -102,6 +102,16 @@ app.get('/counter', function (req, res) {
    res.send(counter.toString());
 });
 
+var names = [];
+app.get('/submit-name' , function (req,res) { //URL: /submit-name?name=xxxxx
+//get the current name
+var name = req.query.name; //to do
+
+names.push(name);
+//JSON JavaScript Object Notation
+res.send(JSON.stringify(names));
+});
+
 app.get('/:postName', function(req,res) {
     var postName = req.params.postName;
     res.send(createTemplate(articles[postName]));
@@ -125,15 +135,7 @@ app.get('/favicon.ico', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'favicon.ico'));
 });
 
-var names = [];
-app.get('/submit-name' , function (req,res) { //URL: /submit-name?name=xxxxx
-//get the current name
-var name = req.query.name; //to do
 
-names.push(name);
-//JSON JavaScript Object Notation
-res.send(JSON.stringify(names));
-});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
