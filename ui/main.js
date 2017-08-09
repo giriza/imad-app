@@ -28,8 +28,8 @@ var counter = 0;
 
 
 //submit name
-var n = nameInput.value;
 var nameInput = doc.getElementById('n');
+var n = nameInput.value;
 var submit = doc.getElementById('submit_btn');
 submit.onclick = function () {
     //make a request to the server
