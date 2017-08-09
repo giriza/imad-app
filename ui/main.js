@@ -27,20 +27,35 @@ var counter = 0;
  };  
 
 
+
 //submit name
 var nameInput = document.getElementById('n');
 var n = nameInput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
-    //make a request to the server
     
-    //capture a list of names and render it as a list
-    var names = ['name1','name2','name3','name4'];
-    var list = '';
-    for(var i=0;i< names.length; i++)
-    {
-        list +='<li>' + names[i] + '</li>';
-    }
-     var ul = document.getElementById('namelist');
-     ul.innerHTML = list;
-};
+     //create a request to counter endpoint
+   var request = new XMLHttpRequest();
+   request.onreadystatechange = function () 
+   {
+      if(request.readyState == XMLHttpRequest.DONE)
+      {
+          if(request.status==200)
+          {
+               //capture a list of names and render it as a list
+               var names = ['name1','name2','name3','name4'];
+               var list = '';
+               for(var i=0;i< names.length; i++)
+               {
+                list +='<li>' + names[i] + '</li>';
+               }
+            var ul = document.getElementById('namelist');
+            ul.innerHTML = list;
+          }
+      }
+      //not yet done - no action reqd
+   };
+      //make  a request
+ request.open('GET','http://girijaiyer1996.imad.hasura-app.io/submit-name?name=',true);
+ request.send(null);
+ };
