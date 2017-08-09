@@ -125,6 +125,15 @@ app.get('/favicon.ico', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'favicon.ico'));
 });
 
+var names = [];
+app.get('/submit-name/:name' , function (req,res) {
+//get the current name
+var name = req.params.name; //to do
+names.push(name);
+//JSON JavaScript Object Notation
+res.send(JSON.stringify(names));
+});
+
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
