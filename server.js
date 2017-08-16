@@ -17,7 +17,7 @@ app.use(morgan('combined'));
 
 var articles = {
     
-    'postOne': {
+    'articleOne': {
     title : 'About Me || GIRIZA',
     heading : 'Post One',
     date : 'Aug 5th,2017',
@@ -30,7 +30,7 @@ var articles = {
      </p>`
     
 },
-    'postTwo': {
+    'articleTwo': {
     title : 'Life as an Engineer || GIRIZA',
     heading : 'Post Two',
     date : 'Aug 6th,2017',
@@ -45,7 +45,7 @@ var articles = {
             </p>
      `
     },
-    'postThree': {
+    'articleThree': {
     title : 'Engineer ke Phases || GIRIZA',
     heading : 'Post Three',
     date : 'Aug 7th,2017',
@@ -142,9 +142,27 @@ names.push(name);
 res.send(JSON.stringify(names));
 });
 
-app.get('/:postName', function(req,res) {
-    var postName = req.params.postName;
-    res.send(createTemplate(articles[postName]));
+app.get('/articles/:articleName', function(req,res) {
+    var articleName = req.params.articleName;
+    pool.query("SELECT * FROM article WHERE title="+req.params.articleName,function(err,result){
+       if(err)
+       {
+       res.status(500).send(err.toString());
+       }
+       else
+       {
+           if(result.rows.length===0)
+           {
+               res.status(404).send('Article not found');
+           }
+           else
+           {
+               var articleData = result.rows[0];
+            res.send(createTemplate(articleData));
+           }
+       }
+    });
+   
 });
 
 
