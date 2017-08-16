@@ -19,7 +19,7 @@ var articles = {
     
     'articleOne': {
     title : 'About Me || GIRIZA',
-    heading : 'Article One',
+    heading : 'ArticleOne',
     date : 'Aug 5th,2017',
     content : 
     `    <p>
@@ -32,7 +32,7 @@ var articles = {
 },
     'articleTwo': {
     title : 'Life as an Engineer || GIRIZA',
-    heading : 'article Two',
+    heading : 'ArticleTwo',
     date : 'Aug 6th,2017',
     content : 
     `   <hr/>
@@ -47,7 +47,7 @@ var articles = {
     },
     'articleThree': {
     title : 'Engineer ke Phases || GIRIZA',
-    heading : 'article Three',
+    heading : 'ArticleThree',
     date : 'Aug 7th,2017',
     content : 
     `   <hr/>
@@ -157,7 +157,7 @@ app.get('/articles/:articleName', function(req,res) {
            }
            else
            {
-               var articleData = result.rows[0];
+            var articleData = result.rows[0];
             res.send(createTemplate(articleData));
            }
        }
