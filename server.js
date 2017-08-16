@@ -19,7 +19,7 @@ var articles = {
     
     'articleOne': {
     title : 'About Me || GIRIZA',
-    heading : 'Post One',
+    heading : 'Article One',
     date : 'Aug 5th,2017',
     content : 
     `    <p>
@@ -32,7 +32,7 @@ var articles = {
 },
     'articleTwo': {
     title : 'Life as an Engineer || GIRIZA',
-    heading : 'Post Two',
+    heading : 'article Two',
     date : 'Aug 6th,2017',
     content : 
     `   <hr/>
@@ -47,7 +47,7 @@ var articles = {
     },
     'articleThree': {
     title : 'Engineer ke Phases || GIRIZA',
-    heading : 'Post Three',
+    heading : 'article Three',
     date : 'Aug 7th,2017',
     content : 
     `   <hr/>
@@ -144,7 +144,7 @@ res.send(JSON.stringify(names));
 
 app.get('/articles/:articleName', function(req,res) {
     var articleName = req.params.articleName;
-    pool.query("SELECT * FROM article WHERE title="+req.params.articleName,function(err,result){
+    pool.query("SELECT * FROM article WHERE title='"+req.params.articleName +"'",function(err,result){
        if(err)
        {
        res.status(500).send(err.toString());
