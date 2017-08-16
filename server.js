@@ -92,6 +92,12 @@ function createTemplate (data) {
     return htmlTemplate;
 }
 
+app.get('/test-db', function (req, res) {
+    //make a select request
+    //return the respone with the results
+    
+});
+
 app.get('/ui/favicon.ico', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'favicon.ico'));
 });
