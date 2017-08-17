@@ -15,53 +15,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    
-    'article-One': {
-    title : 'About Me || GIRIZA',
-    heading : 'ArticleOne',
-    date : 'Aug 5th,2017',
-    content : 
-    `    <p>
-        After 4yrs of struggle with coding, i just realised this is the easiest thing ever!
-     </p>
-     <p>
-        Thanks to IMAD! :D
-     </p>`
-    
-},
-    'article-Two': {
-    title : 'Life as an Engineer || GIRIZA',
-    heading : 'ArticleTwo',
-    date : 'Aug 6th,2017',
-    content : 
-    `   <hr/>
-            <h1>
-                My Life as an Engineer
-            </h1>
-            
-            <p>
-                2013-2017
-            </p>
-     `
-    },
-    'article-Three': {
-    title : 'Engineer ke Phases || GIRIZA',
-    heading : 'ArticleThree',
-    date : 'Aug 7th,2017',
-    content : 
-    `   <hr/>
-            <h1>
-                Phases of being an Engineer
-            </h1>
-            
-            <p>
-                My experience as a computer science engineer.
-            </p>
-     `    
-        
-    }
-};
 
 
 function createTemplate (data) {
