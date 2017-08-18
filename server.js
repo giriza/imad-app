@@ -69,12 +69,26 @@ app.get('/hash/:input',function(req,res){
     
     var hashedString = hash(req.params.input,"this is some random string");
     res.send(hashedString);
-    //algorithm: md5
-    //"password"->hfjhsvbbvkw92wu2fn72in
-    //"password this is some random string"->gvr577yge4fiuoggty6rww
-    //"password" ->"password this is some random string"->"hash"->"hash"
-});
+    });
 
+app.post('/create-user',function(req,res){
+    
+    //username,pasword
+    var salt = crypto.getrandomBytes(128).toString('hex');
+    var dbString = hash(password,salt);
+    pool.query('INSERT into "user"(username,password) VALUES($1, $2)', [username,dbString],function(err,result){
+         if(err)
+       {
+           res.status(500).send(err.toString());
+       }
+       else
+       {
+           res.send('user successfully created:',+username);
+       }
+        
+    });
+    
+});
 
 var pool = new Pool(config);
 app.get('/test-db', function (req, res) {
