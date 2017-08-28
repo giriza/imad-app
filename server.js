@@ -146,6 +146,8 @@ app.post('/login',function(req,res){
     });
 });
 
+
+//login
 app.get('/check-login', function(req,res){
  if(req.session && req.session.auth && req.session.auth.userId)   
     {
@@ -155,6 +157,13 @@ app.get('/check-login', function(req,res){
  {
      res.send('You are not logged in');
  }
+});
+
+//logout
+app.get('/logout', function(req,res){
+   delete req.session.auth;
+   res.send('Logged out');
+    
 });
 
 
